@@ -1,21 +1,23 @@
-var CLOUD_WIDTH = 420; //ширина облака
-var CLOUD_HEIGHT = 270; //высота облака
-var CLOUD_X = 100;  //точка отсчета облака по горизонтали
-var CLOUD_Y = 10;  //точка отсчета облака по вертикали
+'use strict';
+
+var CLOUD_WIDTH = 420; // ширина облака
+var CLOUD_HEIGHT = 270; // высота облака
+var CLOUD_X = 100; // точка отсчета облака по горизонтали
+var CLOUD_Y = 10; // точка отсчета облака по вертикали
 var GAP = 10;
 var FONT_GAP = 15;
 var TEXT_WIDTH = 50;
-var BAR_WiDTH = 40; //ширина колонки
+var BAR_WIDTH = 40; // ширина колонки
 var barWidth = CLOUD_WIDTH - GAP - TEXT_WIDTH - GAP;
 
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 
 };
 
-var getMaxElement = function(arr) {  //получаем максимальный элемент
+var getMaxElement = function (arr) { // получаем максимальный элемент
   var maxElement = arr[0];
 
   for (var i = 0; i < arr.length; i++) {
@@ -27,7 +29,7 @@ var getMaxElement = function(arr) {  //получаем максимальный
   return maxElement;
 };
 
-window.renderStatistics = function(ctx, players, times) {
+window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
@@ -41,8 +43,5 @@ window.renderStatistics = function(ctx, players, times) {
   for (var i = 0; i < players.length; i++) {
     // ctx.fillText(players[i], CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP + (GAP + BAR_WiDTH) * i);
     // ctx.fillRect(CLOUD_X + GAP, CLOUD_Y + GAP + (GAP + BAR_WiDTH) * i, (barWidth * times[i]) / maxTime, BAR_WiDTH);
-
-    ctx.fillText(players[i], CLOUD_Y + GAP, CLOUD_X + GAP + FONT_GAP + (GAP + BAR_WiDTH) * i);
-    ctx.fillRect(CLOUD_Y + GAP, CLOUD_X + GAP + (GAP + BAR_WiDTH) * i, (barWidth * times[i]) / maxTime, BAR_WiDTH);
   }
 };
