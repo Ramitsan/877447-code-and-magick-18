@@ -3,7 +3,7 @@
 // объявляем массивы данных
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var WIZARD_COATCOLORS = ['rgb (101, 137, 164)', 'rgb (241, 43, 107)', 'rgb (146, 100, 161)', 'rgb (56, 159, 117)', 'rgb (215, 210, 55)', 'rgb (0, 0, 0)'];
+var WIZARD_COATCOLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD_EYESCOLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_AMOUNT = 4;
 
@@ -39,7 +39,7 @@ var renderWizardFriends = function () {
   return wizardFriends;
 };
 
-renderWizardFriends();
+var wizardFriends = renderWizardFriends();
 
 
 // клонируем шаблон волшебника со всем содержимым
@@ -54,8 +54,8 @@ var renderWizard = function (wizard) {
 }
 
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizardFriends[i]; i++) {
-  fragment.appendChild(renderWizard(wizardFriends[i]));
+for (var i = 0; i < wizardFriends.length; i++) {
+  fragment.appendChild(renderWizard(wizardFriends.length));
 }
 similarListElement.appendChild(fragment);
 
