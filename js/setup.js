@@ -22,7 +22,7 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 // функция генерации случайного атрибута волшебника
 var getRandomAtribut = function(arr) {
   var randomAtribut = Math.floor(Math.random() * arr.length);
-  return randomAtribut;
+  return arr[randomAtribut];
 };
 
 // функция создания друзей волшебника
