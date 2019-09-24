@@ -20,7 +20,7 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 
 
 // функция генерации случайного атрибута волшебника
-var getRandomAtribut = function(arr) {
+var getRandomAtribut = function (arr) {
   var randomAtribut = Math.floor(Math.random() * arr.length);
   return arr[randomAtribut];
 };
@@ -28,13 +28,13 @@ var getRandomAtribut = function(arr) {
 // функция создания друзей волшебника
 var renderWizardFriends = function () {
   var wizardFriends = [];
-  for ( var i = 1; i <= WIZARD_AMOUNT; i++) {
-     var wizard = {
+  for (var i = 1; i <= WIZARD_AMOUNT; i++) {
+    var wizard = {
       name: getRandomAtribut(WIZARD_NAMES) + ' ' + getRandomAtribut(WIZARD_SURNAMES),
       coatColor: getRandomAtribut(WIZARD_COATCOLORS),
       eyesColor: getRandomAtribut(WIZARD_EYESCOLORS)
-     }
-  wizardFriends.push(wizard);
+    };
+    wizardFriends.push(wizard);
   }
   return wizardFriends;
 };
@@ -51,7 +51,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < wizardFriends.length; i++) {
