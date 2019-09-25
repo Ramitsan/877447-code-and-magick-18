@@ -69,8 +69,8 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
-var wizardCoat = setup.querySelector('.wizard-coat');
-var wizardEyes = setup.querySelector('.wizard-eyes');
+var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
+var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
 var wizardFireball = setup.querySelector('.setup-fireball-wrap');
 
 
@@ -111,8 +111,4 @@ setupClose.addEventListener('keydown', function (evt) {
     closePopup();
   }
 });
-
-
-
-
 
