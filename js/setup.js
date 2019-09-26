@@ -1,6 +1,6 @@
 'use strict';
 
-// объявляем массивы данных
+// КОНСТАНТЫ
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var WIZARD_COATCOLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
@@ -9,6 +9,17 @@ var WIZARD_FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var WIZARD_AMOUNT = 4;
 var ESC_KEYCODE = 27;
 var ENTER_KEYCODE = 13;
+
+// переменные
+var setup = document.querySelector('.setup');
+var setupOpen = document.querySelector('.setup-open');
+var setupClose = setup.querySelector('.setup-close');
+
+var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
+var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
+var wizardFireball = setup.querySelector('.setup-fireball-wrap');
+
+var heroName = setup.querySelector('input[name="username"]');
 
 
 // находим и показываем окно с настройками волшебников
@@ -65,44 +76,37 @@ similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 
-// открываем окно с настройками персонажа
-var setup = document.querySelector('.setup');
-var setupOpen = document.querySelector('.setup-open');
-var setupClose = setup.querySelector('.setup-close');
-var wizardCoat = setup.querySelector('.setup-wizard .wizard-coat');
-var wizardEyes = setup.querySelector('.setup-wizard .wizard-eyes');
-var wizardFireball = setup.querySelector('.setup-fireball-wrap');
-
-
-var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
-    closePopup();
-  }
-};
-
+// открытие окна с настройками персонажа
 var openPopup = function () {
   setup.classList.remove('hidden');
-
   document.addEventListener('keydown', onPopupEscPress);
 };
 
+// закрытие окна с настройками персонажа
 var closePopup = function () {
   setup.classList.add('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+// закрытие окна с настройками персонажа по кнопке ESC
+var onPopupEscPress = function (evt) {
+  if (evt.keyCode === ESC_KEYCODE && evt.target !== heroName) {
+    closePopup();
+  }
+};
+
+// обработчики
+setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
@@ -112,3 +116,20 @@ setupClose.addEventListener('keydown', function (evt) {
   }
 });
 
+// меняем цвет мантии
+wizardCoat.addEventListener('click', function () {
+  var randomCoatColor = getRandomAtribut(WIZARD_COATCOLORS);
+  wizardCoat.style.fill = randomCoatColor;
+});
+
+// меняем цвет глаз
+wizardEyes.addEventListener('click', function () {
+  var randomEyesColor = getRandomAtribut(WIZARD_EYESCOLORS);
+  wizardEyes.style.fill = randomEyesColor;
+});
+
+// меняем цвет фаербола
+wizardFireball.addEventListener('click', function () {
+  var randomFireballColor = getRandomAtribut(WIZARD_FIREBALL);
+  wizardFireball.style.background = randomFireballColor;
+});
