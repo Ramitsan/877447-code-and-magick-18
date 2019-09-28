@@ -21,6 +21,9 @@ var wizardFireball = setup.querySelector('.setup-fireball-wrap');
 
 var heroName = setup.querySelector('input[name="username"]');
 
+var inputCoatColor = setup.querySelector('input[name=coat-color]');
+var inputEyesColor = setup.querySelector('input[name=eyes-color]');
+var inputFireballColor = setup.querySelector('input[name=fireball-color]');
 
 // находим и показываем окно с настройками волшебников
 var userDialog = document.querySelector('.setup');
@@ -120,16 +123,19 @@ setupClose.addEventListener('keydown', function (evt) {
 wizardCoat.addEventListener('click', function () {
   var randomCoatColor = getRandomAtribut(WIZARD_COATCOLORS);
   wizardCoat.style.fill = randomCoatColor;
+  inputCoatColor.value = randomCoatColor;
 });
 
 // меняем цвет глаз
 wizardEyes.addEventListener('click', function () {
   var randomEyesColor = getRandomAtribut(WIZARD_EYESCOLORS);
   wizardEyes.style.fill = randomEyesColor;
+  inputEyesColor.value = randomEyesColor;
 });
 
 // меняем цвет фаербола
 wizardFireball.addEventListener('click', function () {
   var randomFireballColor = getRandomAtribut(WIZARD_FIREBALL);
   wizardFireball.style.background = randomFireballColor;
+  inputFireballColor.value = randomFireballColor;
 });
