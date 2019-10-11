@@ -2,7 +2,7 @@
 
 // Учебный проект: в движении
 
-(function() {
+(function () {
   // находим элемент, за который будем тащить окно
   // добавим обработчик
   var setup = document.querySelector('.setup'); // окно
@@ -53,7 +53,7 @@
       if (dragged) {
         var onClickPreventDefault = function (evt) {
           evt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
@@ -68,7 +68,7 @@
   var resetCoordsHandler = function (evt) {
     setup.style.left = setupStartX;
     setup.style.top = setupStartY;
-  }
+  };
 
   setupOpen.addEventListener('click', resetCoordsHandler);
 
