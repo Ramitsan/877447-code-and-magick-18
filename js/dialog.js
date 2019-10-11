@@ -2,11 +2,14 @@
 
 // Учебный проект: в движении
 
-(function () {
+(function() {
   // находим элемент, за который будем тащить окно
   // добавим обработчик
-  var setupDialogElement = document.querySelector('.setup');
-  var dialogHandler = setupDialogElement.querySelector('.upload');
+  var setup = document.querySelector('.setup'); // окно
+  var dialogHandler = setup.querySelector('.upload'); // аватар
+  var setupOpen = document.querySelector('.setup-open');
+  var setupStartX = setup.style.left;
+  var setupStartY = setup.style.top;
 
 
   dialogHandler.addEventListener('mousedown', function (evt) {
@@ -17,7 +20,6 @@
       x: evt.clientX,
       y: evt.clientY
     };
-
 
     // отграничиваем перемещение окна и выбор аватара
     var dragged = false;
@@ -37,8 +39,8 @@
         y: moveEvt.clientY
       };
 
-      setupDialogElement.style.top = (setupDialogElement.offsetTop - shift.y) + 'px';
-      setupDialogElement.style.left = (setupDialogElement.offsetLeft - shift.x) + 'px';
+      setup.style.top = (setup.offsetTop - shift.y) + 'px';
+      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
     };
 
     // обработчик на отпускание кнопки мыши
@@ -61,5 +63,13 @@
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   });
+
+  // сброс стартовых координат при повторном открытии окна
+  var resetCoordsHandler = function (evt) {
+    setup.style.left = setupStartX;
+    setup.style.top = setupStartY;
+  }
+
+  setupOpen.addEventListener('click', resetCoordsHandler);
 
 })();
