@@ -5,11 +5,9 @@
 (function () {
   // находим элемент, за который будем тащить окно
   // добавим обработчик
-  var setup = document.querySelector('.setup'); // окно
-  var dialogHandler = setup.querySelector('.upload'); // аватар
-  var setupOpen = document.querySelector('.setup-open');
-  var setupStartX = setup.style.left;
-  var setupStartY = setup.style.top;
+  var dialogHandler = window.settingsSetup.setup.querySelector('.upload'); // аватар
+  var setupStartX = window.settingsSetup.setup.style.left;
+  var setupStartY = window.settingsSetup.setup.style.top;
 
 
   dialogHandler.addEventListener('mousedown', function (evt) {
@@ -39,8 +37,8 @@
         y: moveEvt.clientY
       };
 
-      setup.style.top = (setup.offsetTop - shift.y) + 'px';
-      setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+      window.settingsSetup.setup.style.top = (window.settingsSetup.setup.offsetTop - shift.y) + 'px';
+      window.settingsSetup.setup.style.left = (window.settingsSetup.setup.offsetLeft - shift.x) + 'px';
     };
 
     // обработчик на отпускание кнопки мыши
@@ -66,10 +64,10 @@
 
   // сброс стартовых координат при повторном открытии окна
   var resetCoordsHandler = function (evt) {
-    setup.style.left = setupStartX;
-    setup.style.top = setupStartY;
+    window.settingsSetup.setup.style.left = setupStartX;
+    window.settingsSetup.setup.style.top = setupStartY;
   };
 
-  setupOpen.addEventListener('click', resetCoordsHandler);
+  window.settingsSetup.setupOpen.addEventListener('click', resetCoordsHandler);
 
 })();
