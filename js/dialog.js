@@ -49,8 +49,8 @@
       document.removeEventListener('mouseup', onMouseUp);
 
       if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
+        var onClickPreventDefault = function (clickEvt) {
+          clickEvt.preventDefault();
           dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
@@ -63,7 +63,7 @@
   });
 
   // сброс стартовых координат при повторном открытии окна
-  var resetCoordsHandler = function (evt) {
+  var resetCoordsHandler = function () {
     window.settingsSetup.setup.style.left = setupStartX;
     window.settingsSetup.setup.style.top = setupStartY;
   };
