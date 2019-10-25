@@ -19,29 +19,22 @@
   // меняем цвет мантии
   wizardCoat.addEventListener('click', function () {
     var newColor = getRandomAtribut(window.data.WIZARD_COATCOLORS);
-    this.style.fill = newColor;
+    wizardCoat.style.fill = newColor;
     wizard.onCoatChange(newColor);
   });
 
   // меняем цвет глаз
   wizardEyes.addEventListener('click', function () {
     var newColor = getRandomAtribut(window.data.WIZARD_EYESCOLORS);
-    this.style.fill = newColor;
+    wizardEyes.style.fill = newColor;
     wizard.onEyesChange(newColor);
   });
 
   // меняем цвет фаербола
   wizardFireball.addEventListener('click', function () {
     var newColor = getRandomAtribut(window.data.WIZARD_FIREBALL);
-    this.style.background = newColor;
+    wizardFireball.style.background = newColor;
   });
 
   return window.wizard = wizard;
-
-  window.wizard = {
-    wizardElement: wizardElement,
-    wizardCoat: wizardCoat,
-    wizardEyes: wizardEyes,
-    wizardFireball: wizardFireball
-  };
 })();
