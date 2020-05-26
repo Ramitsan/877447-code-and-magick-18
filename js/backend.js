@@ -1,8 +1,8 @@
 'use strict';
 
 (function () {
-  var URL_SAVE = 'https://js.dump.academy/code-and-magick';
-  var URL_LOAD = 'https://js.dump.academy/code-and-magick/data';
+  var URL_SAVE = 'https://javascript.pages.academy/code-and-magick';
+  var URL_LOAD = 'https://javascript.pages.academy/code-and-magick/data';
   var REQUEST_TIMEOUT = 10000; // 10s
   var REQUEST_STATUS_OK = 200;
   var REQUEST_STATUS_BAD = 400;
